@@ -2,12 +2,42 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import {
+    createBrowserRouter,
+    RouterProvider,
+} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+import Overview from "./components/overview";
+import Balances from "./components/balances";
+import Transactions from "./components/transactions";
+import Categories from "./components/categories";
 
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <App />,
+    },
+    {
+        path: "/overview",
+        element: <Overview />
+    },
+    {
+        path: "/balances",
+        element: <Balances />
+    },
+    {
+        path: "/transactions",
+        element: <Transactions />
+    },
+    {
+        path: "/categories",
+        element: <Categories />
+    }
+]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
